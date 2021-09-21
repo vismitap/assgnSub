@@ -8,8 +8,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
   <style>
-    img {
-      width: 100%;
+    .custom-file-label{
+      word-break: break-all;
     }
   </style>
   <title>AssignSubmit</title>
@@ -24,37 +24,41 @@
           <input type="text" id="name" name="name" placeholder="Enter your name" class="name form-control mb-2" required>
           <input type="email" id="email" placeholder="Your Email address" class="email form-control mb-2" required>
           <div class="custom-file mb-3">
-            <input type="file" name="file" id="file" class="custom-file-input">
-            <label for="file" class="custom-file-label" aria-placeholder="Select a file"></label>
-          </div>
+            <input type="file" class="custom-file-input" id="inputGroupFile01"
+            aria-describedby="inputGroupFileAddon01">
+          <label class="custom-file-label" for="inputGroupFile01">Choose file</label>  
+        </div>
           <input type="submit" value="Submit" class="btn btn-primary btn-block submit">
         </form>        
         <h2 class="text-center submitSuccessful"></h2>
       </div>
     </div>
   </div>
-<script>
- let submit = document.querySelector('.submit');
- let name = document.querySelector('.name');
- let email = document.querySelector('.email');
- let submitSuccessful = document.querySelector('.submitSuccessful');
-//  submit.disabled = true;
-
-    // submit.disabled = false;
-    submit.addEventListener('click', function(){
-      if(name.value!=''|| email.value!=''){
-      submitSuccessful.innerText = 'Submission Received! ';
-      submitSuccessful.style.cssText = "background-color:#80ff80; border-radius:4px;padding: 20px";
-      }
- })
-
-</script>
+  <script>
+    let submit = document.querySelector('.submit');
+    let name = document.querySelector('.name');
+    let email = document.querySelector('.email');
+    let submitSuccessful = document.querySelector('.submitSuccessful');
+       submit.addEventListener('click', function(){
+         if(name.value!=''|| email.value!=''){
+         submitSuccessful.innerText = 'Submission Received! ';
+         submitSuccessful.style.cssText = "background-color:#80ff80; border-radius:4px;padding: 20px; margin-top: 20px";
+         }
+    })
+   
+   </script>
+   
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+  crossorigin="anonymous">  </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+  crossorigin="anonymous"></script>
+<script >
+  $(document).on('change', '.custom-file-input', function (event) {
+    $(this).next('.custom-file-label').html(event.target.files[0].name);
+})</script>
+ 
 </body>
 
 </html>
