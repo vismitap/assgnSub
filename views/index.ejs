@@ -21,28 +21,33 @@
       <div class="col-md-6 m-auto">
         <h1 class="text-center display-4 my-4">Your submission</h1>
         <form action="/upload" method="POST" enctype="multipart/form-data">
-          <input type="text" id="name" name="name" placeholder="Enter your name" class="form-control mb-2" required>
-          <input type="email" id="email" placeholder="Your Email address" class="form-control mb-2" required>
+          <input type="text" id="name" name="name" placeholder="Enter your name" class="name form-control mb-2" required>
+          <input type="email" id="email" placeholder="Your Email address" class="email form-control mb-2" required>
           <div class="custom-file mb-3">
             <input type="file" name="file" id="file" class="custom-file-input">
             <label for="file" class="custom-file-label" aria-placeholder="Select a file"></label>
           </div>
           <input type="submit" value="Submit" class="btn btn-primary btn-block submit">
         </form>        
-        <hr>
         <h2 class="text-center submitSuccessful"></h2>
       </div>
     </div>
   </div>
 <script>
  let submit = document.querySelector('.submit');
- submit.addEventListener('click', function(){
-  let submitSuccessful = document.querySelector('.submitSuccessful');
-  submitSuccessful.innerText = 'Submission Received! ';
-  submitSuccessful.style.cssText = "background-color:#80ff80; border-radius:4px;padding: 20px";
+ let name = document.querySelector('.name');
+ let email = document.querySelector('.email');
+ let submitSuccessful = document.querySelector('.submitSuccessful');
+//  submit.disabled = true;
 
+    // submit.disabled = false;
+    submit.addEventListener('click', function(){
+      if(name.value!=''|| email.value!=''){
+      submitSuccessful.innerText = 'Submission Received! ';
+      submitSuccessful.style.cssText = "background-color:#80ff80; border-radius:4px;padding: 20px";
+      }
  })
- 
+
 </script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
