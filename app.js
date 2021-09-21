@@ -8,6 +8,7 @@ const multer = require('multer');
 const GridFsStorage = require('multer-gridfs-storage');
 const Grid = require('gridfs-stream');
 const methodOverride = require('method-override');
+require('dotenv').config();
 
 const app = express();
 
@@ -17,8 +18,7 @@ app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
 
 // Mongo URI
-const mongoURI = process.env.MONGO_URI;
-// mongodb+srv://visp:visp123@cluster0.qpsgf.mongodb.net/assgn_sub?retryWrites=true&w=majority
+const mongoURI = process.env.ATLAS_URI;
 // Create mongo connection
 const conn = mongoose.createConnection(mongoURI);
 
