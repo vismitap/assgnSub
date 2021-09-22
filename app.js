@@ -19,6 +19,7 @@ app.set('view engine', 'ejs');
 
 // Mongo URI
 const mongoURI = process.env.ATLAS_URI;
+console.log(mongoURI);
 // Create mongo connection
 const conn = mongoose.createConnection(mongoURI);
 
@@ -57,10 +58,9 @@ const storage = new GridFsStorage({
 const upload = multer({ storage });
 
 app.post('/upload', upload.single('file'), (req, res) => {
-  // res.json({ file: req.file });
+  res.json({ file: req.file });
   res.redirect('/');
 });
 
-const port = 5000;
-
-app.listen(port, () => console.log(`Server started on port ${port}`));
+var port_number = server.listen(process.env.PORT || 3000);
+app.listen(port_number);
