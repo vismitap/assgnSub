@@ -62,5 +62,5 @@ app.post('/upload', upload.single('file'), (req, res) => {
   res.redirect('/');
 });
 
-var port_number = server.listen(process.env.PORT || 3000);
+var port_number = 3000;
 app.listen(port_number);
